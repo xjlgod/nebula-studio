@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394
 	github.com/kataras/iris/v12 v12.2.0-alpha4
+	github.com/iris-contrib/middleware/jwt v0.0.0-20210110101738-6d0a4d799b5d
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible
 	github.com/saintfish/chardet v0.0.0-20120816061221-3af4cd4741ca
 	github.com/vesoft-inc/nebula-http-gateway/ccore v0.0.0-20220124093655-f7f5b4c63e6a
