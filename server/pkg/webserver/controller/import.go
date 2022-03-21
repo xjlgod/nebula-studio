@@ -156,7 +156,9 @@ func HandleImportAction(ctx iris.Context) base.Result {
 			Message: err.Error(),
 		}
 	}
-	data, err := importer.ImportAction(params.TaskId, importer.NewTaskAction(params.TaskAction))
+	nebulaAddress := ctx.Values().GetString("nebulaAddress")
+	username := ctx.Values().GetString("username")
+	data, err := importer.ImportAction(params.TaskId, nebulaAddress, username, importer.NewTaskAction(params.TaskAction))
 	if err != nil {
 		zap.L().Warn("importAction fail", zap.Error(err))
 		return base.Response{

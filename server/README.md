@@ -69,6 +69,10 @@ Response:
 
 #### ConnectDB  API
 
+Header:
+
+Authorization 1 cm9vdDoxMjM=
+
 The request json body:
 
 ```json
@@ -82,8 +86,9 @@ Response:
     "code": 0,
     "message": "",
     "data": {
-        "nsid": "e870674d-6ebc-4d9d-a1f7-bf59fdca24e8",
-        "version": "v2.6"
+        "nsid": "da821d0e-1bc5-4407-ab04-9dbcfa1dd3fb",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZWJ1bGFBZGRyZXNzIjoiMTkyLjE2OC44LjIzMzo5NjY5IiwidXNlcm5hbWUiOiJyb290In0.zP6LxNByhG1XGrzEowljBz6UkDfbm66e7Njd3zHdSio",
+        "version": "v3.0"
     }
 }
 ```

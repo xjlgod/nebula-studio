@@ -2,11 +2,13 @@ package controller
 
 import (
 	"encoding/base64"
+	"fmt"
 	"strings"
 
 	"github.com/vesoft-inc/nebula-http-gateway/ccore/nebula/gateway/dao"
 	"github.com/vesoft-inc/nebula-http-gateway/ccore/nebula/types"
 	"github.com/vesoft-inc/nebula-studio/server/pkg/webserver/base"
+	"github.com/vesoft-inc/nebula-studio/server/pkg/webserver/middleware"
 
 	"github.com/kataras/iris/v12"
 	"go.uber.org/zap"
@@ -92,8 +94,11 @@ func ConnectDB(ctx iris.Context) base.Result {
 			Message: err.Error(),
 		}
 	}
+	nebulaAddress := fmt.Sprintf("%s:%d", params.Address, params.Port)
+	loginToken := middleware.GetLoginTokenHandler(nebulaAddress, username)
 	data := make(map[string]string)
 	data["nsid"] = clientInfo.ClientID
+	data["token"] = loginToken
 	data["version"] = string(clientInfo.NebulaVersion)
 	ctx.SetCookieKV("nsid", data["nsid"])
 	return base.Response{
